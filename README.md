@@ -532,8 +532,6 @@ Optional fields:
 * `label` - a friendly string that identifies the sequence. If a language is specified,
 	a default label will be automatically derived by it - e.g. if language is `ita`, 
 	by default `italiano` will be used as the label.
-* `default` - a boolean that sets the value of the DEFAULT attribute of EXT-X-MEDIA tags using this sequence.
-	If not specified, the first EXT-X-MEDIA tag in each group returns DEFAULT=YES, while the others return DEFAULT=NO.
 * `bitrate` - an object that can be used to set the bitrate for the different media types,
 	in bits per second. For example, `{"v": 900000, "a": 64000}`. If the bitrate is not supplied,
 	nginx-vod-module will estimate it based on the last clip in the sequence.
@@ -1713,13 +1711,6 @@ The parameter value can contain variables.
 
 When enabled, the module will shift back the dts timestamps by the pts delay of the initial frame.
 This can help keep the pts timestamps aligned across multiple renditions.
-
-#### vod_hls_encryption_output_iv
-* **syntax**: `vod_hls_encryption_output_iv on/off`
-* **default**: `off`
-* **context**: `http`, `server`, `location`
-
-When enabled, the module outputs the `IV` attribute in returned `#EXT-X-KEY` tags.
 
 ### Configuration directives - MSS
 
